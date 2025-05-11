@@ -3,7 +3,13 @@ import cors from 'cors';
 import puppeteer from 'puppeteer';
 
 const app = express();
-app.use(cors());
+app.use(cors(
+  {
+    origin: 'https://sydney-event.netlify.app/',
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        credentials: true
+}
+));
 
 app.get('/api/events', async (req, res) => {
   try {
